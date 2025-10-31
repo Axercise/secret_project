@@ -5,7 +5,7 @@
     if($conn == true){
         // echo "connect"; 
     }else{
-        echo "error";
+        echo "errorrrrrr";
     }
 
 
