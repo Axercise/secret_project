@@ -23,17 +23,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ประเมินคุณครูผู้สอน</title>
     <link rel="stylesheet" href="../css/teacher.css">
+    <link rel="stylesheet" href="../css/student.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/x-icon" href="../img/tepleela_logo.png">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <style>
-    #content{
-        display:none;
-    }
-    #summarize{
-        display:table;
-    }
+    
 </style>
 <body>
 
@@ -119,6 +115,7 @@
             <div class="summarize-btn" onclick="toggle('content')" id="text">ข้อเสนอเเนะ</div>
 
         <table id="summarize">
+            
             <tr class="table-head">
                 <td class="front">ลำดับ</td>
                 <td>คำถาม</td>
@@ -152,7 +149,7 @@
                 <td style="text-align:center;"><?php echo $q['scores'][3] ?? 0; ?></td>
                 <td style="text-align:center;"><?php echo $q['scores'][4] ?? 0; ?></td>
                 <td style="text-align:center;"><?php echo $q['scores'][5] ?? 0; ?></td> 
-                <td style="text-align:center;" class="last-column last"><?php echo number_format($avg,2)?></td>
+                <td style="text-align:center;" class="last"><?php echo number_format($avg,2)?></td>
             </tr>
             <?php endforeach; ?>
         </table>
@@ -192,20 +189,29 @@
 </body>
 <script>
     function toggle(id) {
-    var box = document.getElementById(id);
+    var box = document.getElementById(id); // content 
     var summarize = document.getElementById("summarize");
     var text = document.getElementById("text");
 
-    var boxDisplay = window.getComputedStyle(box).display;
-    var summarizeDisplay = window.getComputedStyle(summarize).display;
-
-    if (boxDisplay === "none" && summarizeDisplay === "table") {
-        box.style.display = "table";
+    // ถ้า content ถูกซ่อนอยู่ → แสดง content / ซ่อน summarize
+    if (box.style.display === "none" || box.style.display === "") {
+        // ตรวจสอบหน้าจอ
+        if (window.innerWidth <= 700) {
+            box.style.display = "block";
+        } else {
+            box.style.display = "table";
+        }
         summarize.style.display = "none";
         text.innerHTML = "ผลประเมิน";
-    } else {
+    } 
+    // ถ้า content แสดงอยู่ → ซ่อน content / แสดง summarize
+    else {
         box.style.display = "none";
-        summarize.style.display = "table";
+        if (window.innerWidth <= 700) {
+            summarize.style.display = "block";
+        } else {
+            summarize.style.display = "table";
+        }
         text.innerHTML = "ข้อเสนอแนะ";
     }
 }

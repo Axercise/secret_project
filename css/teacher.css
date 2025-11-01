@@ -26,9 +26,6 @@
     margin-left:20px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 body{
     font-family: "Noto Sans Thai", sans-serif;
     top:0;
@@ -49,6 +46,7 @@ body{
     box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
     margin:0 auto;
     border-radius:30px;
+    
 }
 
 .logout{
@@ -92,27 +90,37 @@ body{
     top:-10%;
 }
 
+#content{
+    display:none;
+}
+#summarize{
+    display:table;
+}
+
 table{
-    width: 1100px;
+    width: 100%;
     /* background-image:linear-gradient(to bottom right ,  rgb(255, 103, 164 ,0.7) , black); */
     box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
     border-radius:30px;
     padding: 30px;
     margin:0 auto;
-    border-collapse:separate;
+    border-collapse:collapse;
     border-spacing: 0px 2px;
     table-layout: auto;     
     word-wrap: break-word;     
     overflow-wrap: break-word; 
+    overflow: hidden;
 }
 
 table tr{
+    width: 100%;
     box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
     border-radius: 15px;
+    margin:0 auto;
 }
 
 table td{
-    padding:15px;
+    padding:20px;
     background-color:white;
     vertical-align: top;       
     white-space: normal;       
@@ -219,10 +227,14 @@ table td{
 
   table {
     width: 100%;
-    display: block;
+    display:block;
     overflow-x: auto; /* ให้ scroll ได้ในแนวนอน */
     border-radius: 15px;
     white-space: nowrap;
+  }
+
+  #summarize{
+    display:block;
   }
 
   table td {
@@ -248,12 +260,6 @@ table td{
 
   .name {
     font-size: 16px;
-  }
-  #summarize{
-        display: block !important; /* บังคับให้ override display:inline/inline-table */
-        width: 100%;
-        overflow-x: auto;
-        white-space: nowrap;
   }
   .head-box{
     text-align: center;    
