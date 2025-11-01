@@ -66,17 +66,17 @@
 
             }else{
                 $_SESSION['message'] = "รหัสผ่านไม่ถูกต้อง";
-                header("location:index.php");
+                header("location:../index.php");
             }
 
         }else{
             $_SESSION['message'] = "เกิดข้อผิดพลาดบางอย่าง";
-            header("location:index.php");
+            header("location:../index.php");
         }
 
     }else{
         $_SESSION['message'] = "เกิดข้อผิดพลาดบางอย่าง";
-        header("location:index.php");
+        header("location:../index.php");
     }
 
 ?>

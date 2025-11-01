@@ -9,7 +9,7 @@
     $student_id = $_SESSION['first_pass_id'];
 
     if(!isset($_SESSION['first_pass_id'])){
-        header("location:../log_re/index.php");
+        header("location:../index.php");
         exit();
     }
 

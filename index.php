@@ -50,7 +50,7 @@
             
             <hr style="opacity:0.2;">
 
-            <form action="login_process.php" method="post">
+            <form action="log_re/login_process.php" method="post">
 
                 <input type="text" name="first_pass_id" maxlength="5" pattern="[0-9]*" inputmode="numeric" placeholder="รหัสประจำตัวนักเรียน">
                 <input type="password" name="citizen_id" maxlength="13" placeholder="รหัสประจำตัวประชาชน" >
