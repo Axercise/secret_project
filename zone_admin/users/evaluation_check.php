@@ -9,7 +9,7 @@
     $class = $_GET['class'];
 
     if(!isset($_SESSION['first_pass_id'])){
-        header("location:../log_re/login.php");
+        header("location:../log_re/index.php");
         exit();
     }
 

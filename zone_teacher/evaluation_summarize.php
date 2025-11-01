@@ -4,13 +4,13 @@
     session_start();
 
     if(!isset($_SESSION['first_pass_id']) || $_SESSION['role'] !== 'teacher'){
-        header('location:../log_re/login.php');
+        header('location:../log_re/index.php');
         exit();
     }
 
     if(isset($_GET['logout'])){
         session_destroy();
-        header("location:../log_re/login.php");
+        header("location:../log_re/index.php");
         exit();
     }
 
