@@ -149,7 +149,7 @@
                 <td style="text-align:center;"><?php echo $q['scores'][3] ?? 0; ?></td>
                 <td style="text-align:center;"><?php echo $q['scores'][4] ?? 0; ?></td>
                 <td style="text-align:center;"><?php echo $q['scores'][5] ?? 0; ?></td> 
-                <td style="text-align:center;" class="last"><?php echo number_format($avg,2)?></td>
+                <td style="text-align:center;" class="last"><?php echo number_format($avg,2)?> ⭐</td>
             </tr>
             <?php endforeach; ?>
         </table>
