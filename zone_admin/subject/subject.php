@@ -93,49 +93,58 @@
     
     ?>
 
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
 
-    <!-- Search -->
-    <form action="subject.php" method="GET">
-        <input type="text" name="keyword" placeholder="ค้นหาวิชา" 
-        value="<?php 
-            if(isset($_GET['keyword'])){
-                echo htmlspecialchars($_GET['keyword']); //ส่ง keyword เเสดงออกเป็น keyword
-            }else{
-                echo "";
-            }
-        ?>">
-        <button type="submit">ค้นหาวิชา</button>
-    </form>
+    <div class="grid-bar">
+        <!-- Search --> 
+        <form action="subject.php" method="GET">
+            <input type="text" name="keyword" placeholder="ค้นหาวิชา" 
+            value="<?php    
+                if(isset($_GET['keyword'])){
+                    echo htmlspecialchars($_GET['keyword']); //ส่ง keyword เเสดงออกเป็น keyword
+                }else{
+                    echo "";
+                }
+            ?>">
+            <button type="submit">ค้นหาวิชา</button>
+        </form>
+
+        <a href="subjectadd.php">เพิ่มวิชา</a>
+        <button type="button" id="deleteSelected" class="del" >ลบวิชาที่เลือก</button>
+        <h3>** การลบข้อมูลส่งผลถึงข้อมูลที่เชื่อมโยงอยู่จะหายไป</h3>
+
+    </div>
 
     <!-- Table -->
     <form method="post" action="subject.php" id="multiDeleteForm">
         
     <table>
         <tr>
-            <td>ลำดับ</td>
-            <td>id</td>
-            <td>ชื่อวิชา</td>
-            <td>รหัสวิชา</td>
-            <td>เเก้ไข</td>
-            <td>ลบ</td>
-            <td><input type="checkbox" id="selectAll"></td>
+            <td class="table-first" style="text-align: center;">ลำดับ</td>
+            <td style="text-align: center;">ID</td>
+            <td style="text-align: center;">ชื่อวิชา</td>
+            <td style="text-align: center;">รหัสวิชา</td>
+            <td style="text-align: center;">เเก้ไข</td>
+            <td style="text-align: center;">ลบ</td>
+            <td class="table-last"><input type="checkbox" id="selectAll"></td>
         </tr>
 
         <?php if(mysqli_num_rows($result) > 0) : ?>
 
         <?php while($rows = mysqli_fetch_assoc($result)) : ?>
-            
         
-
         <tr>
-            <td><?php echo $count++ ?></td>
-            <td><?php echo $rows['id']?></td>
+            <td class="table-first"><?php echo $count++ ?></td>
+            <td style="text-align:center"><?php echo $rows['id']?></td>
             <td><?php echo $rows['subject_name'] ?></td>
-            <td><?php echo $rows['subject_code']?></td>
-            <td><a href="edit_subject.php?id=<?php echo $rows['id']?>">เเก้ไข</a></td>
-            <td><a href="subject.php?delete=<?php echo $rows['id']?>" class="btn-delete" data-id="<?php echo $rows['id']; ?>" data-name="<?php echo $rows['subject_name']?>">ลบ</a></td>
-            <td><input type="checkbox" name="delete_ids[]" value="<?php echo $rows['id']; ?>"></td>
+            <td style="text-align: center;"><?php echo $rows['subject_code']?></td>
+            <td style="text-align: center;"><a href="edit_subject.php?id=<?php echo $rows['id']?>" class="edit-btn">เเก้ไข</a></td>
+            <td style="text-align: center;"><a href="subject.php?delete=<?php echo $rows['id']?>" class="del-btn" data-id="<?php echo $rows['id']; ?>" data-name="<?php echo $rows['subject_name']?>">ลบ</a></td>
+            <td class="table-last"><input type="checkbox" name="delete_ids[]" value="<?php echo $rows['id']; ?>"></td>
         </tr>
         
         <?php endwhile ?>
@@ -143,14 +152,16 @@
         <?php else : ?>
             
             <div>
-                <p>ไม่มีวิชาอยู่เลย</p>
+                <p style="margin-left:30px;">ไม่มีวิชาอยู่เลย</p>
             </div>
+
         <?php endif ?>
         
     </table>
-            <a href="subjectadd.php">เพิ่มวิชา</a>
-            <button type="button" id="deleteSelected">ลบวิชาที่เลือก</button>
+
+            
     </div>
+
     </form>
 
     
@@ -200,7 +211,7 @@
     ?>
 
     <script>
-        document.querySelectorAll(".btn-delete").forEach(link => {
+        document.querySelectorAll(".del-btn").forEach(link => {
         link.addEventListener("click", function(e) {
         e.preventDefault(); // ป้องกันไม่ให้ลิงก์วิ่งไปทันที
 

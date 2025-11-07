@@ -28,11 +28,14 @@
     
 </head>
 ิ<body>
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
     <div class="container">
-        <form action="questionadd_process.php" method="POST">
+        <form action="questionadd_process.php" method="POST" class="form-set1">
             <label for="question">คำถาม</label>
             <input type="text" name="question" placeholder="รายละเอียดคำถาม">
-            <button type="submit">เพิ่มคำถามใหม่</button>
+            <button type="submit" class="confirm-btn">เพิ่มคำถามใหม่</button>
         </form>
     </div>
 </body>

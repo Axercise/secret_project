@@ -43,8 +43,11 @@
 </head>
 
 <body>
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
     <div class="container">
-        <form action="edit_question_process.php" method='POST'>
+        <form action="edit_question_process.php" method='POST' class="form-set1">
             <?php while($rows = mysqli_fetch_assoc($result)) : ?>
                 
                 <input type="hidden" name="id" value="<?php echo $rows['id']?>">
@@ -53,7 +56,7 @@
 
             <?php endwhile ?>
 
-            <button type="submit">ยืนยันการเเก้ไข</button>
+            <button type="submit" class="confirm-btn">ยืนยันการเเก้ไข</button>
         </form>
     </div>
 </body>

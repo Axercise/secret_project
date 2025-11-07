@@ -84,14 +84,18 @@
     
 </head>
 <body>
+
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
 
-        <a href="add_users.php">เพิ่มข้อมูลผู้ใช้งาน</a>
+        <div class="grid-bar"> 
 
         <!-- Search Name -->
         <form action="users.php" method="get">
-            <label for="">ค้นหาชื่อ - นามสกุล</label>
-            <input type="text" name="keyword" 
+            <input type="text" name="keyword" placeholder="ค้นหาชื่อ-นามสกุล"
             value="<?php
                 if(isset($_GET['keyword'])){
                     echo htmlspecialchars($_GET['keyword']);
@@ -106,8 +110,7 @@
         <!-- Search Class -->
         <form action="users.php" method="get">
 
-            <label for="">ค้นหาห้องเรียน</label>
-            <input type="text" name="class" 
+            <input type="text" name="class" placeholder="ค้นหาห้องเรียน" style="margin-left:10px"
             value="<?php 
             if(isset($_GET['class'])){
                 echo htmlspecialchars($_GET['class']);
@@ -117,69 +120,77 @@
 
             ?>">
 
-            <select name="role" id="">
+            <select name="role" id="" class="select-btn">
                 <option value="student">นักเรียน</option>            
                 <option value="teacher">คุณครู</option>
             </select>
 
             <button type="submit">ค้นหา</button>
         </form>
-        <table>
 
-            <tr>
-                <td>ลำดับ</td>
-                <td>id</td>
-                <td>คำนำหน้า</td>
-                <td>ชื่อ</td>
-                <td>นามสกุล</td>
-                <td>ห้องเรียน</td>
-                <td>เลขที่</td>
-                <td>ตำเเหน่ง</td>
-                <td>รหัสประจำตัวนักเรียน | ครู</td>
-                <td>รหัสประจำตัวประชาชน</td>
-                <td>เเก้ไขข้อมูล</td>
-                <td>ลบข้อมูล</td>
-                <td>ตรวจสอบผลการประเมิน</td>
-            </tr>
-            
-            <?php if(isset($result)) :?>
-            <?php if(mysqli_num_rows($result) > 0) : ?>
-            <?php 
-                $count = 1;
-            ?> 
-            <?php while($rows = mysqli_fetch_assoc($result)) :?>
-            
-            <tr>
-                <td><?php echo $count++ ?></td>
-                <td><?php echo $rows['id']?></td>
-                <td><?php echo $rows['prefix']?></td>
-                <td><?php echo $rows['firstname']?></td>
-                <td><?php echo $rows['lastname']?></td>
-                <td><?php echo $rows['class']?></td>
-                <td><?php echo $rows['no']?></td>
-                <td><?php echo $rows['role']?></td>
-                <td><?php echo $rows['first_pass_id']?></td>
-                <td><?php echo $rows['citizen_id']?></td>
-                <td><a href="edit_users.php?id=<?php echo $rows['id']?>">เเก้ไข</a></td>
-                <td><a href="users.php?delete=<?php echo $rows['id']?>" class="btn-delete" data-id="<?php echo $rows['id'] ?>" data-prefix="<?php echo $rows['prefix']?>" data-firstname="<?php echo $rows['firstname']?>" data-lastname="<?php echo $rows['lastname']?>">ลบ</a></td>
-                <?php if($rows['role'] === 'student') :?>
-                    <td><a href="evaluation_result.php?id=<?php echo $rows['id']?>">ผลประเมิน</a></td>
-                <?php elseif($rows['role'] === 'teacher') : ?>
-                    <td><a href="evaluation_list.php?id=<?php echo $rows['id']?>">ผลประเมิน</a></td>
+            <a href="add_users.php" style="width: 160px;">เพิ่มข้อมูลผู้ใช้งาน</a>
+
+        </div>
+
+        <div class="user-table">
+
+            <table>
+
+                <tr>
+                    <td class="table-first center">ลำดับ</td>
+                    <td class="center">id</td>
+                    <td class="center">คำนำหน้า</td>
+                    <td class="center">ชื่อ</td>
+                    <td class="center">นามสกุล</td>
+                    <td class="center">ห้องเรียน</td>
+                    <td class="center">เลขที่</td>
+                    <td class="center">ตำเเหน่ง</td>
+                    <td class="center">รหัสประจำตัวนักเรียน | ครู</td>
+                    <td class="center">รหัสประจำตัวประชาชน</td>
+                    <td class="center">เเก้ไขข้อมูล</td>
+                    <td class="center">ลบข้อมูล</td>
+                    <td class="table-last center">ตรวจสอบผลการประเมิน</td>
+                </tr>
+                
+                <?php if(isset($result)) :?>
+                <?php if(mysqli_num_rows($result) > 0) : ?>
+                <?php 
+                    $count = 1;
+                ?> 
+                <?php while($rows = mysqli_fetch_assoc($result)) :?>
+                
+                <tr>
+                    <td class="table-first center"><?php echo $count++ ?></td>
+                    <td class="center"><?php echo $rows['id']?></td>
+                    <td class="center"><?php echo $rows['prefix']?></td>
+                    <td><?php echo $rows['firstname']?></td>
+                    <td><?php echo $rows['lastname']?></td>
+                    <td class="center"><?php echo $rows['class']?></td>
+                    <td class="center"><?php echo $rows['no']?></td>
+                    <td class="center"><?php echo $rows['role']?></td>
+                    <td class="center"><?php echo $rows['first_pass_id']?></td>
+                    <td class="center"><?php echo $rows['citizen_id']?></td>
+                    <td class="center"><a href="edit_users.php?id=<?php echo $rows['id']?>" class="edit-btn">เเก้ไข</a></td>
+                    <td class="center"><a href="users.php?delete=<?php echo $rows['id']?>" class="del-btn" data-id="<?php echo $rows['id'] ?>" data-prefix="<?php echo $rows['prefix']?>" data-firstname="<?php echo $rows['firstname']?>" data-lastname="<?php echo $rows['lastname']?>">ลบ</a></td>
+                    <?php if($rows['role'] === 'student') :?>
+                        <td class="table-last center"><a href="evaluation_result.php?id=<?php echo $rows['id']?>" class="result-eva-btn">ผลประเมิน</a></td>
+                    <?php elseif($rows['role'] === 'teacher') : ?>
+                        <td class="table-last center"><a href="evaluation_list.php?id=<?php echo $rows['id']?>" class="result-eva-btn">ผลประเมิน</a></td>
+                    <?php endif; ?>
+                </tr>
+
+                <?php endwhile; ?>
+
                 <?php endif; ?>
-            </tr>
+                
+                <?php else :?>
 
-            <?php endwhile; ?>
+                <h3 style="margin-left:30px">กรุณาเลือกห้องเรียน</h3>
 
-            <?php endif; ?>
-            
-            <?php else :?>
+                <?php endif; ?>
 
-            <h3>กรุณาเลือกห้องเรียน</h3>
-
-            <?php endif; ?>
-
-        </table>
+            </table>
+        </div>
 
     </div>
 
@@ -228,7 +239,7 @@
     ?>
 
     <script>
-        document.querySelectorAll(".btn-delete").forEach(link => {
+        document.querySelectorAll(".del-btn").forEach(link => {
         link.addEventListener("click", function(e) {
         e.preventDefault(); // ป้องกันไม่ให้ลิงก์วิ่งไปทันที
 

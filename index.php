@@ -1,6 +1,6 @@
 <?php
 
-    include '../database/db.php';
+    include 'database/db.php';
     session_start();
 
 ?>
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบประเมินครูผู้สอน</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -41,7 +41,7 @@
         <div class="form-box">
 
             <div class="logo">
-                <img src="../img/tepleela_logo.png" alt="" width="90px">
+                <img src="img/tepleela_logo.png" alt="" width="90px">
             </div>
 
             <div class="head-text">
@@ -65,7 +65,7 @@
         </div>
 
         <div class="img-box">
-            <img src="../img/img2.png" alt="" width="500px" >
+            <img src="img/img2.png" alt="" width="500px" >
         </div>
 
     </div>

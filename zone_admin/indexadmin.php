@@ -30,42 +30,65 @@
 </head>
 
 <body>
+
+    <div class="logo">
+        <img src="../img/tepleela_logo.png" alt="">
+    </div>
+
     <div class="container">
 
+            <div class="logout">
+                <a href="" class="btn-logout">ออกจากระบบ</a>
+            </div>
+
+        <div class="head-grid">
+
+            <div class="head-text">
+
+                <p class="welcome">ยินดีต้อนรับ</p>
+                <p class="name">Admin Console</p>
+
+            </div>
+
+            <div class="head-img">
+                <img src="../img/img4.jpg" alt="" width="300px">
+            </div>
+
+        </div>
+
         <table>
+
             <tr>
-                <td>ลำดับ</td>
-                <td>รายการ</td>
-                <td>เเก้ไข</td>
+                <td class="table-first">ลำดับ</td>
+                <td style="text-align:center;">รายการ</td>
+                <td class="table-last">เเก้ไข</td>
             </tr>
             <tr>
-                <td>1</td>
+                <td class="table-first">1</td>
                 <td>เเก้ไขเพิ่มเติมวิชา</td>
-                <td><a href="subject/subject.php">เเก้ไข</a></td>
+                <td class="table-last"><a href="subject/subject.php" class="edit-btn">เเก้ไข</a></td>
             </tr>
             <tr>
-                <td>2</td>
+                <td class="table-first">2</td>
                 <td>เเก้ไขคำถามเเบบฟอร์ม</td>
-                <td><a href="question/question.php">เเก้ไข</a></td>
+                <td class="table-last"><a href="question/question.php" class="edit-btn">เเก้ไข</a></td>
             </tr>
             <tr>
-                <td>3</td>
+                <td class="table-first">3</td>
                 <td>เเก้ไขวิชาที่เรียนในเเต่ละห้อง</td>
-                <td><a href="studied/studied.php">เเก้ไข</a></td>
+                <td class="table-last"><a href="studied/studied.php" class="edit-btn">เเก้ไข</a></td>
             </tr>
             <tr>
-                <td>4</td>
+                <td class="table-first">4</td>
                 <td>เเก้ไขข้อมูลนักเรียน | คุณครู</td>
-                <td><a href="users/users.php">เเก้ไข</a></td>
+                <td class="table-last"><a href="users/users.php" class="edit-btn">เเก้ไข</a></td>
             </tr>
             <tr>
                 
             </tr>
         </table>
         
-        <div class="logout">
-            <a href="" class="btn-logout">ออกจากระบบ</a>
-        </div>
+        
 
     </div>
 

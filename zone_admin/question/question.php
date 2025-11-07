@@ -93,31 +93,40 @@
     
     ?>
 
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
 
     <!-- Search -->
-    <form action="question.php" method="GET">
-        <input type="text" name="keyword" placeholder="ค้นหาวิชา" 
-        value="<?php 
-            if(isset($_GET['keyword'])){
-                echo htmlspecialchars($_GET['keyword']); //ส่ง keyword เเสดงออกเป็น keyword
-            }else{
-                echo "";
-            }
-        ?>">
-        <button type="submit">ค้นหาคำถาม</button>
-    </form>
+    <div class="grid-bar">
+        <form action="question.php" method="GET">
+            <input type="text" name="keyword" placeholder="ค้นหาคำถาม" 
+            value="<?php 
+                if(isset($_GET['keyword'])){
+                    echo htmlspecialchars($_GET['keyword']); //ส่ง keyword เเสดงออกเป็น keyword
+                }else{
+                    echo "";
+                }
+            ?>">
+            <button type="submit" style="width: 120px;">ค้นหาคำถาม</button>
+        </form>
+                
+        <a href="questionadd.php" style="width: 100px;">เพิ่มคำถาม</a>
+        <button type="button" id="deleteSelected" style="width:130px;">ลบคำถามที่เลือก</button>
+    </div>
 
     <!-- Table -->
     <form method="post" action="question.php" id="multiDeleteForm">
     <table>
         <tr>
-            <td>ลำดับ</td>
-            <td>id</td>
-            <td>รายการคำถาม</td>
-            <td>เเก้ไข</td>
-            <td>ลบ</td>
-            <td><input type="checkbox" id="selectAll"></td>
+            <td class="table-first center">ลำดับ</td>
+            <td class="center">id</td>
+            <td class="center">รายการคำถาม</td>
+            <td class="center">เเก้ไข</td>
+            <td class="center">ลบ</td>
+            <td class="table-last center"><input type="checkbox" id="selectAll"></td>
         </tr>
 
         <?php if(mysqli_num_rows($result) > 0) : ?>
@@ -125,12 +134,12 @@
         <?php while($rows = mysqli_fetch_assoc($result)) : ?>
 
         <tr>
-            <td><?php echo $count++ ?></td>
+            <td class="table-first"><?php echo $count++ ?></td>
             <td><?php echo $rows['id']?></td>
             <td><?php echo $rows['question']?></td>
-            <td><a href="edit_question.php?id=<?php echo $rows['id']?>">เเก้ไข</a></td>
-            <td><a href="question.php?delete=<?php echo $rows['id']?>" class="btn-delete" data-id="<?php echo $rows['id']?>" >ลบ</a></td>
-            <td><input type="checkbox" name="delete_ids[]" value="<?php echo $rows['id']; ?>"></td>
+            <td class="center"><a href="edit_question.php?id=<?php echo $rows['id']?>" class="edit-btn">เเก้ไข</a></td>
+            <td class="center"><a href="question.php?delete=<?php echo $rows['id']?>" class="del-btn" data-id="<?php echo $rows['id']?>" >ลบ</a></td>
+            <td class="table-last"><input type="checkbox" name="delete_ids[]" value="<?php echo $rows['id']; ?>"></td>
         </tr>
 
         <?php endwhile ?>   
@@ -142,8 +151,7 @@
         <?php endif ?>
 
     </table>
-            <a href="questionadd.php">เพิ่มคำถาม</a>
-            <button type="button" id="deleteSelected">ลบคำถามที่เลือก</button>
+        
     </div>
     </form>
 
@@ -193,7 +201,7 @@
     ?>
 
     <script>
-        document.querySelectorAll(".btn-delete").forEach(link => {
+        document.querySelectorAll(".del-btn").forEach(link => {
         link.addEventListener("click", function(e) {
         e.preventDefault(); // ป้องกันไม่ให้ลิงก์วิ่งไปทันที
 

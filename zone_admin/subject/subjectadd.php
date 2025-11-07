@@ -28,13 +28,16 @@
     
 </head>
 ิ<body>
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
     <div class="container">
-        <form action="subjectadd_process.php" method="POST">
+        <form action="subjectadd_process.php" method="POST" class="form-set1">
             <label for="subject_name">ชื่อวิชา</label>
             <input type="text" name="subject_name" placeholder="ชื่อวิชา">
             <label for="subject_code">รหัสวิชา</label>
             <input type="text" name="subject_code" placeholder="รหัสวิชา">
-            <button type="submit">เพิ่มวิชา</button>
+            <button type="submit" class="confirm-btn">เพิ่มวิชา</button>
         </form>
     </div>
 </body>

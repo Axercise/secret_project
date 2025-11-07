@@ -8,12 +8,331 @@ body{
     background-color: rgb(255, 255, 255);
 }
 
+.logo img{
+    width: 100px;
+    margin: 10px auto 30px;
+    display:block;
+}
+
 .container{
     max-width: 1200px;
     margin:0 auto;
+    display:block;
+    box-shadow: 0px 7px 29px 0px rgba(100,100,111,0.2);
+    border-radius: 30px;
+}
+
+.logout{
+    display:flex;
+    justify-content: flex-end;
+    padding: 20px 30px;
+}
+
+.logout a {
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding: 7px;
+    background-color:red;
+    border-radius: 20px;
+    font-weight: 500;
+    transition:all 0.1s ease-out;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.logout a:hover{
+    color:rgb(235, 235, 235);
+}
+
+.head-grid{
+    display:grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.head-text .welcome{
+    color:green;
+}
+
+.head-text .name{
+    font-weight: 500;
+    font-size: larger;
+    color:red;
 }
 
 table{
+    width: 1200px;
     margin:0 auto;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    border-radius:30px;
+    padding:30px;
+    margin:0 auto;
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+    table-layout: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
+table tr{
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    border-radius: 15px;
+}
+
+table td{
+    padding: 15px;
+    background-color:white;
+    vertical-align: top;
+    white-space:normal;
+    word-break: break-word;
+}
+
+.table-first{
+    border-radius: 15px 0px 0px 15px;
+    text-align: center;
+}
+
+.table-last{
+    border-radius: 0px 15px 15px 0px;
+    text-align: center;
+}
+
+.edit-btn{
+    text-decoration:none;
+    color:white;
+    background-color:rgb(21, 143, 214);
+    padding:5px 15px 5px 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition:all 0.1s ease-out;
+}
+
+.edit-btn:hover{
+    background-color:rgb(13, 69, 102) ;
+}
+
+.del-btn{
+    text-decoration: none;
+    color:white;
+    background-color: rgb(255, 20, 20);
+    padding: 5px 21px 5px 21px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.1s ease-out;
+}
+
+.del-btn:hover{
+    background-color: rgb(122, 7, 7) ;
+}
+
+.result-eva-btn{
+    text-decoration:none;
+    color:black;
+    background-color:rgb(255, 251, 0);
+    padding: 5px 21px 5px 21px;
+    border-radius:15px;
+    transition:all 0.1s ease-out;
+    overflow: hidden;
+}
+
+.result-eva-btn:hover{
+    background-color:rgb(161, 159, 16);
+}
+
+.grid-bar{
+    display:flex;
+    padding: 30px 0px 30px 30px;
+    align-items: center;
+}
+
+.grid-bar form input{
+    font-family: "Noto Sans Thai", sans-serif;
+    border:none;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.grid-bar form input:focus{
+    box-shadow: 0 0 15px rgba(255, 35, 123, 0.2);
+    outline: none;
+}   
+
+.grid-bar form button{
+    font-family: "Noto Sans Thai", sans-serif;
+    width: 95px;
+    font-size: medium;
+    margin-left:10px;
+    border:none;
+    padding: 10px;
+    cursor: pointer;
+    background-color:rgb(79, 159, 233);
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    color:white;
+    border-radius:10px;
+    transition: all 0.1s ease-out;
+}
+
+
+.grid-bar form button:hover{
+    background-color:rgb(37, 85, 131);
+}
+
+.grid-bar a{
+    font-size: medium;
+    width: 70px;
+    text-align: center;
+    text-decoration:none;
+    margin-left:10px;
+    padding: 10px;
+    color:white;
+    background-color: rgb(28, 158, 28);
+    border-radius: 10px;
+    transition:all 0.1s ease-out;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+}
+
+.grid-bar a:hover{
+    background-color:rgb(12, 78, 12); ;
+}
+
+.grid-bar button{
+    font-family: "Noto Sans Thai", sans-serif;
+    width: 120px;
+    border:none;
+    border-radius: 10px;
+    transition:all 0.1s ease-out;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    background-color: rgb(255, 20, 20);
+    color:white;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: medium;
+}
+
+.grid-bar button:hover{
+    background-color: rgb(122, 7, 7) ;
+}
+
+.grid-bar h3{
+    margin-left:10px;
+}
+
+.form-set1{
+        padding:30px 30px 30px 30px;
+}
+.form-set1 input{
+    display:block;
+    border:none;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    width: 1100px;
+    height: 40px;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-size:medium;
+    font-family: "Noto Sans Thai", sans-serif;
+}
+.form-set1 input:focus{
+    box-shadow: 0 0 15px rgba(255, 35, 123, 0.2);
+    outline: none;
+}
+
+.select-form-set1{
+    display:block;
+    border:none;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    margin-bottom:20px;
+    margin-top:5px;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+.confirm-btn{
+    border:none;
+    width: 140px;
+    height: 35px;
+    display:block;
+    margin:0 auto;
+    border-radius: 10px;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+    background-color:rgb(28, 158, 28);
+    color:white;
+    cursor:pointer;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    font-family:"Noto Sans Thai", sans-serif;
+}
+.confirm-btn:hover{
+    width: 170px;
+}
+
+.select-btn{
+    text-align: center;
+    font-family:"Noto Sans Thai", sans-serif;
+    border:none;
+    width: 140px;
+    height: 35px;
+    font-size:medium;
+    box-shadow: 0px 7px 29px 0px rgba(100,100,111,0.2);
+    border-radius: 10px;
+}
+
+.center{
+    text-align: center;
+}
+
+.user-table{
+    overflow-x: auto;
+}
+
+.user-table table{
+    width: max-content;
+}
+
+@media(max-width:1200px){
+    .container,table{
+        width: 100%;
+    }
+
+    .head-grid{
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media(max-width:700px){
+    body {
+    font-size: 15px;
+  }
+
+  .container {
+    width: 95%;
+    border-radius: 20px;
+  }
+
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto; /* ให้ scroll ได้ในแนวนอน */
+    border-radius: 15px;
+    white-space: nowrap;
+  }
+
+  table td {
+    padding: 22px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .table-row .last-column a {
+    padding: 4px 14px;
+    font-size: 13px;
+  }
+}
