@@ -44,8 +44,13 @@
     <title>ระบบผู้ดูเเล</title>
 </head>
 <body>
+
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
-        <form method="post" action="edit_subject_process.php">
+        <form method="post" action="edit_subject_process.php" class="form-set1">
             <input type="hidden" name="id" value="<?php echo $id?>">
 
             <!-- เลือกวิชา -->
@@ -80,7 +85,7 @@
                 ?>
             </select>
 
-            <button type="submit" class="btn btn-success">บันทึก</button>
+            <button type="submit" class="confirm-btn" style="margin-top:20px;">บันทึก</button>
         </form>
 
     </div>

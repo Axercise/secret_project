@@ -28,12 +28,17 @@
     <title>เเบบประเมินคุณครูผู้สอน</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/evaluate.css">
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 <body>
+
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
         <!-- logo -->
-            <img src="../img/tepleela_logo.png" alt="" class="logo">
+            
         
         <?php
 
@@ -104,7 +109,8 @@
             $std_data = $stmt_std->get_result();
 
         ?>
-        <div class="container-head">
+
+        <div class="head-grid">
 
             <!-- Text -->
             <div class="head-text">
@@ -138,7 +144,7 @@
 
             <!-- Img -->
             <div class="head-img">
-                <img src="../img/img1.png" alt="" class="">
+                <img src="../../img/img1.png" alt="" width="300px">
             </div>
         
         </div>
@@ -155,26 +161,26 @@
                 <input type="hidden" name="subject_id" value="<?php echo $subject_id?>">
                     
                 <table>
-                    <tr class="header-table">
-                        <td class="front-head-table">ลำดับที่</td>
-                        <td>เนื้อหา</td>
-                        <td>น้อยที่สุด</td>
-                        <td>น้อย</td>
-                        <td>ปานกลาง</td>
-                        <td>มาก</td>
-                        <td class="last-head-table">มากที่สุด</td>
+                    <tr class="">
+                        <td class="table-first center">ลำดับที่</td>
+                        <td class="center">เนื้อหา</td>
+                        <td class="center">น้อยที่สุด</td>
+                        <td class="center">น้อย</td>
+                        <td class="center">ปานกลาง</td>
+                        <td class="center">มาก</td>
+                        <td class="table-last center">มากที่สุด</td>
                     </tr>
 
                     <?php while($row = mysqli_fetch_assoc($result_ans)) : ?>
 
                     <tr>
-                        <td style="text-align:center ;" class="front-head-table"><?php echo $count++ ?></td>
+                        <td class="table-first center"><?php echo $count++ ?></td>
                         <td><?php echo $row['question']?></td>
-                        <td style="text-align:center ;"><input type="radio" value="1" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 1) echo "checked"; ?> disabled></td>
-                        <td style="text-align:center ;"><input type="radio" value="2" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 2) echo "checked"; ?> disabled></td>
-                        <td style="text-align:center ;"><input type="radio" value="3" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 3) echo "checked"; ?> disabled></td>
-                        <td style="text-align:center ;"><input type="radio" value="4" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 4) echo "checked"; ?> disabled></td>
-                        <td style="text-align:center ;" class="last-head-table"><input type="radio" value="5" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 5) echo "checked"; ?> disabled></td>
+                        <td class="center"><input type="radio" value="1" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 1) echo "checked"; ?> disabled></td>
+                        <td class="center"><input type="radio" value="2" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 2) echo "checked"; ?> disabled></td>
+                        <td class="center"><input type="radio" value="3" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 3) echo "checked"; ?> disabled></td>
+                        <td class="center"><input type="radio" value="4" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 4) echo "checked"; ?> disabled></td>
+                        <td class="table-last center"><input type="radio" value="5" name="score[<?php echo $row['id'] ?>]" <?php if ($row['score'] == 5) echo "checked"; ?> disabled></td>
                     </tr>
 
                     <?php endwhile ?>
@@ -188,9 +194,9 @@
                         while($rows = mysqli_fetch_assoc($content)):
                         ?>
             
-                        <td style="text-align: center;" class="front-head-table"><?php echo $count++ ?></td>
-                        <td>ข้อเสนอเเนะเพิ่มเติม</td>
-                        <td colspan="5" class="last-head-table content"><input type="text" name="content" value="<?php echo $rows['content']?>" disabled></td>
+                        <td class="table-first center"><?php echo $count++ ?></td>
+                        <td style="">ข้อเสนอเเนะเพิ่มเติม</td>
+                        <td colspan="5" class="table-last center content"><input type="text" name="content" value="<?php echo $rows['content']?>" disabled></td>
                         <?php endwhile; ?>
                     </tr>
                 </table>

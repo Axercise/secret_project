@@ -22,7 +22,7 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ประเมินคุณครูผู้สอน</title>
-    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="../../css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/x-icon" href="../img/tepleela_logo.png">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -73,17 +73,23 @@
 
     ?>
 
-    <div class="contaienr">
-        <table border="1" cellpadding="5">
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
+    <div class="container">
+        <div class="suggest-btn" onclick="toggle('content')">➤ ข้อเสนอเเนะ</div>
+        <table>
+            
             <tr>
-                <th>ลำดับ</th>
-                <th>คำถาม</th>
-                <th>น้อยที่สุด</th>
-                <th>น้อย</th>
-                <th>ปานกลาง</th>
-                <th>มาก</th>
-                <th>มากที่สุด</th>
-                <th>ค่าสรุป</th>
+                <td class="table-first center">ลำดับ</td>
+                <td class="center">คำถาม</td>
+                <td class="center">น้อยที่สุด</td>
+                <td class="center">น้อย</td>
+                <td class="center">ปานกลาง</td>
+                <td class="center">มาก</td>
+                <td class="center">มากที่สุด</td>
+                <td class="table-last center">ค่าสรุป</td>
             </tr>
             <?php $i = 1; foreach($questions as $q): ?>
 
@@ -101,23 +107,23 @@
             ?>  
 
             <tr>
-                <td style="text-align:center;"><?php echo $i++; ?></td>
+                <td class="table-first center"><?php echo $i++; ?></td>
                 <td><?php echo $q['question']; ?></td>
-                <td style="text-align:center;"><?php echo $q['scores'][1] ?? 0; ?></td>
-                <td style="text-align:center;"><?php echo $q['scores'][2] ?? 0; ?></td>
-                <td style="text-align:center;"><?php echo $q['scores'][3] ?? 0; ?></td>
-                <td style="text-align:center;"><?php echo $q['scores'][4] ?? 0; ?></td>
-                <td style="text-align:center;"><?php echo $q['scores'][5] ?? 0; ?></td>
-                <td style="text-align-center;"><?php echo number_format($avg,2)?></td>
+                <td class="center"><?php echo $q['scores'][1] ?? 0; ?></td>
+                <td class="center"><?php echo $q['scores'][2] ?? 0; ?></td>
+                <td class="center"><?php echo $q['scores'][3] ?? 0; ?></td>
+                <td class="center"><?php echo $q['scores'][4] ?? 0; ?></td>
+                <td class="center"><?php echo $q['scores'][5] ?? 0; ?></td>
+                <td class="table-last center"><?php echo number_format($avg,2)?></td>
             </tr>
             <?php endforeach; ?>
         </table>
             
-        <div class="button" onclick="toggle('content')">ข้อเสนอเเนะ</div>
+        
         <table class="" id="content">
             <tr>
-                <td>ลำดับ</td>
-                <td>ข้อเสนอเเนะ</td>
+                <td class="table-first center">ลำดับ</td>
+                <td class="table-last center">ข้อเสนอเเนะ</td>
             </tr>
 
                 <?php
@@ -137,8 +143,8 @@
                 <?php while($rows = mysqli_fetch_assoc($content_result)) : ?>
         
             <tr>
-                <td><?php echo $count++?></td>
-                <td><?php echo $rows['content']?></td>
+                <td class="table-first center"><?php echo $count++?></td>
+                <td class="table-last"><?php echo $rows['content']?></td>
             </tr>
             <?php endwhile ;?>
         </table>

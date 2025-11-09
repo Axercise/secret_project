@@ -22,12 +22,16 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ประเมินคุณครูผู้สอน</title>
-    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="../../css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/x-icon" href="../img/tepleela_logo.png">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
+
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
 
     <?php
 
@@ -58,11 +62,11 @@
     <div class="container">
         <table>
             <tr>
-                <td>ลำดับที่</td>
-                <td>รหัสวิชา</td>
-                <td>ชื่อวิชา</td>
-                <td>จำนวนการประเมิน</td>
-                <td>ผลการประเมิน</td>
+                <td class="table-first center">ลำดับที่</td>
+                <td class="center">รหัสวิชา</td>
+                <td class="center">ชื่อวิชา</td>
+                <td class="center">จำนวนการประเมิน</td>
+                <td class="table-last center">ผลการประเมิน</td>
             </tr>
         
             <?php if(mysqli_num_rows($result) > 0) :?>
@@ -70,11 +74,11 @@
             <?php while($rows = mysqli_fetch_assoc($result)) :?>
 
             <tr>
-                <td><?php echo $count++; ?></td>
-                <td><?php echo $rows['subject_code']?></td>
+                <td class="table-first center"><?php echo $count++; ?></td>
+                <td class="center"><?php echo $rows['subject_code']?></td>
                 <td><?php echo $rows['subject_name']?></td>
-                <td><?php echo $rows['total_evaluations']?></td>
-                <td><a href="evaluation_summarize.php?teacher_id=<?php echo $teacher_id?>&subject_id=<?php echo $rows['id']?>">ผลการประเมิน</a></td>
+                <td class="center"><?php echo $rows['total_evaluations']?></td>
+                <td class="table-last center"><a href="evaluation_summarize.php?teacher_id=<?php echo $teacher_id?>&subject_id=<?php echo $rows['id']?>" class="check-eva">ผลการประเมิน</a></td>
             </tr>
 
             <?php endwhile; ?>

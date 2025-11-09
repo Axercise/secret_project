@@ -32,7 +32,7 @@
 <body>
 
     <div class="logo">
-        <img src="../img/tepleela_logo.png" alt="">
+        <a href="indexadmin.php"><img src="../img/tepleela_logo.png" alt=""></a>
     </div>
 
     <div class="container">
@@ -91,6 +91,23 @@
         
 
     </div>
+
+    <?php 
+        // login
+        if(isset($_SESSION['alert'])){
+            $login = json_encode($_SESSION['alert']);
+            echo "
+            <script type='text/javascript'>
+                Swal.fire({
+                title: 'เข้าสู่ระบบสำเร็จ',
+                text: $login ,
+                icon: 'success'
+                });
+            </script>
+            ";
+            unset($_SESSION['alert']);
+        }
+    ?>
 
     <script>
         document.querySelectorAll(".btn-logout").forEach(link => {

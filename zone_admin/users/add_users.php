@@ -28,11 +28,16 @@
     <title>ระบบผู้ดูเเล</title>
 </head>
 <body>
+
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
-        <form action="add_users_process.php" method="POST">
+        <form action="add_users_process.php" method="POST" class="form-set1">
 
             <label for="prefix">คำนำหน้า</label>
-            <select name="prefix" id="">
+            <select name="prefix" id="" class="select-form-set1">
                 <option value="">-</option>
                 <option value="เด็กชาย">เด็กชาย</option>
                 <option value="เด็กหญิง">เด็กหญิง</option>
@@ -61,13 +66,13 @@
             <input type="text" name="citizen_id" maxlength="13">
             
             <label for="role">บทบาท</label>
-            <select name="role" id="">
+            <select name="role" id="" class="select-form-set1">
                 <option value="">-</option>
                 <option value="admin">ผู้ดูเเล</option>
                 <option value="teacher">คุณครู</option>
                 <option value="student">นักเรียน</option>
             </select>
-            <button type="submit">เพิ่มข้อมูลผู้ใช้งาน</button>
+            <button type="submit" class="confirm-btn">เพิ่มข้อมูลผู้ใช้งาน</button>
         </form>
     </div>
 </body>

@@ -115,6 +115,7 @@
                 
         <a href="questionadd.php" style="width: 100px;">เพิ่มคำถาม</a>
         <button type="button" id="deleteSelected" style="width:130px;">ลบคำถามที่เลือก</button>
+        <h3>** การลบข้อมูลส่งผลถึงข้อมูลที่เชื่อมโยงอยู่จะหายไป</h3>
     </div>
 
     <!-- Table -->

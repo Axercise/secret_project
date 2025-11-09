@@ -49,21 +49,19 @@
 </head>
 <style>
     .box{
-        border:1px solid black;
-        margin:10px;
         border-radius:8px;
     }
     .box-item{
         display:flex;
-        justify-content:space-between;
+        justify-content:space-around;
         align-items: center;
-        padding: 10px;
         cursor: pointer;
     }
     .item-list{
         display:none;
-        padding:10px;
-        background-color:f9f9f9;
+    }
+    .add-btn{
+        
     }
 </style>
 <body>
@@ -74,6 +72,10 @@
     
     ?>
 
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
     <?php foreach($classes as $index => $class): ?>
         <div class="box">
@@ -81,19 +83,19 @@
             <div class="box-item" onclick="toggleSubjects('subjects-<?php echo $index; ?>')">
                 <h3><?php echo $class; ?></h3>
                 <div>
-                    <a href="add_subject.php?class=<?php echo urlencode($class); ?>" class="btn btn-primary">เพิ่มวิชา</a> <!-- encode url class จะได้ตรวจสอบ ห้องได้  -->
+                    <a href="add_subject.php?class=<?php echo urlencode($class); ?>" class="add-btn">เพิ่มวิชา</a> <!-- encode url class จะได้ตรวจสอบ ห้องได้  -->
                 </div>
             </div>
 
             <!-- กล่องที่ซ่อนอยู่ -->
             <div id="subjects-<?php echo $index; ?>" class="item-list">
-                <table border="1" width="100%" style="border-collapse:collapse;">
+                <table>
                     <tr>
-                        <th>รหัสวิชา</th>
-                        <th>ชื่อวิชา</th>
-                        <th>ครูผู้สอน</th>
-                        <th>ลบ</th>
-                        <th>เเก้ไข</th>
+                        <td class="table-first center">รหัสวิชา</td>
+                        <td class="center">ชื่อวิชา</td>
+                        <td class="center">ครูผู้สอน</td>
+                        <td class="center">เเก้ไข</td>
+                        <td class="table-last center">ลบ</td>
                     </tr>
                     
                     <?php
@@ -112,17 +114,17 @@
 
                     <?php while($rows = mysqli_fetch_assoc($result)) : ?>
                                 <tr>
-                                    <td><?php echo $rows['subject_code']?></td>
+                                    <td class="table-first center"><?php echo $rows['subject_code']?></td>
                                     <td><?php echo $rows['subject_name']?></td>
                                     <td><?php echo $rows['prefix'] . $rows['firstname'] . " " . $rows['lastname'] ?></td>
-                                    <td><a href="edit_subject.php?id=<?php echo $rows['id'] ?>">แก้ไข</a> </td>
-                                    <td><a href="studied.php?delete=<?php echo $rows['id'] ?>" class="btn-delete" data-id="<?php echo $rows['id']?>" data-name="<?php echo $rows['subject_name']?>" data-class="<?php echo $rows['class']?>">ลบ</a></td>
+                                    <td class="center"><a href="edit_subject.php?id=<?php echo $rows['id'] ?>" class="edit-btn">แก้ไข</a> </td>
+                                    <td class="table-last center"><a href="studied.php?delete=<?php echo $rows['id'] ?>" class="del-btn" data-id="<?php echo $rows['id']?>" data-name="<?php echo $rows['subject_name']?>" data-class="<?php echo $rows['class']?>">ลบ</a></td>
                                 </tr>
                     <?php endwhile ?>
 
                     <?php else : ?> 
 
-                        <tr><td colspan='4'>ยังไม่มีรายวิชา</td></tr>
+                        <tr><td colspan='5' style="border-radius:15px 15px 15px 15px;">ยังไม่มีรายวิชา</td></tr>
                     
                     <?php endif ?>
                 </table>
@@ -188,7 +190,7 @@
     }
 
     //delete
-    document.querySelectorAll(".btn-delete").forEach(link => {
+    document.querySelectorAll(".del-btn").forEach(link => {
         link.addEventListener("click", function(e) {
         e.preventDefault(); // ป้องกันไม่ให้ลิงก์วิ่งไปทันที
 

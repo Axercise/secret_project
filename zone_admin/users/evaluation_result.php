@@ -59,7 +59,7 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ประเมินคุณครูผู้สอน</title>
-    <link rel="stylesheet" href="../css/student.css">
+    <link rel="stylesheet" href="../../css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="image/x-icon" href="../img/tepleela_logo.png">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -95,19 +95,23 @@
         
     ?>
 
+    <div class="logo">
+        <a href="../indexadmin.php"><img src="../../img/tepleela_logo.png" alt=""></a>
+    </div>
+
     <div class="container">
         <div class="head-grid">
 
         <div class="head-text">
             <p class="welcome">ผลการประเมินของ</p>
-            <p class="name"><?php echo $row['prefix'] . '' , $row['firstname'] . ' ' . $row['lastname'] . ' ม.' . 
+            <p class="name" style="color:black;"><?php echo $row['prefix'] . '' , $row['firstname'] . ' ' . $row['lastname'] . ' ม.' . 
             $row['class'] . ' ' . 'เลขที่' . ' ' . $row['no'] ?></p>
 
 
             <?php if($remaining > 0) : ?>
 
-            <div class="have-subject">
-
+            <div class="alr-subject" style="margin-bottom:20px;">
+                
                 <span>เหลือวิชาที่ต้องประเมิน <?php echo " <span style='color:rgb(255, 103, 164 )'> $remaining </span>" ?> วิชา</span>
 
             </div>
@@ -116,7 +120,7 @@
                 
             <div class="alr-subject">
 
-                <p>นักเรียนประเมินครบทุกวิชาเเล้ว</p>
+                <p style="color:green">นักเรียนประเมินครบทุกวิชาเเล้ว</p>
 
             </div>    
             
@@ -131,11 +135,11 @@
         <!-- Table -->
         <table>
             <tr class="table-head">
-                <td class="front">ลำดับที่</td>
-                <td>รหัสวิชา</td>
-                <td>ชื่อวิชา</td>
-                <td>คุณครูผู้สอน</td>
-                <td class="last">สถานะ</td>
+                <td class="table-first center">ลำดับที่</td>
+                <td class="center">รหัสวิชา</td>
+                <td class="center">ชื่อวิชา</td>
+                <td class="center">คุณครูผู้สอน</td>
+                <td class="table-last center">สถานะ</td>
             </tr>
 
             <?php $count = 1?>
@@ -143,8 +147,8 @@
             <?php while($rows = mysqli_fetch_assoc($result)) : ?>
 
             <tr class="table-row">
-                <td class="first-column front"><?php echo $count++ ?></td>
-                <td><?php echo $rows['subject_code']?></td>
+                <td class="table-first center"><?php echo $count++ ?></td>
+                <td class="center"><?php echo $rows['subject_code']?></td>
                 <td><?php echo $rows['subject_name'] ?></td>
                 <td><?php echo $rows['prefix'] . '' . $rows['firstname'] . ' ' . $rows['lastname'] ?> </td>
                 <?php
@@ -163,9 +167,9 @@
                 ?>
 
                 <?php if(mysqli_num_rows($result_evaluate) > 0) :?>
-                <?php echo "<td class='last-column last'><a href='evaluation_check.php?teacher_id=$teacher_id&subject_id=$subject_id&id=$id&class=$class' >ตรวจสอบผลการประเมิน</a></td> " ?>
+                <?php echo "<td class='table-last center '><a href='evaluation_check.php?teacher_id=$teacher_id&subject_id=$subject_id&id=$id&class=$class' class='check-eva'>ตรวจสอบผลการประเมิน</a></td> " ?>
                 <?php else: ?>
-                <td class="alr_evaluate last"><div>ยังไม่ประเมิน</div></td>
+                <td class="table-last center" style="color:red"><div>ยังไม่ประเมิน</div></td>
                 <?php endif ?>
 
             </tr>

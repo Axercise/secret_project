@@ -132,6 +132,8 @@
 
         </div>
 
+        <h3 style="margin-left:30px;">** การลบข้อมูลส่งผลถึงข้อมูลที่เชื่อมโยงอยู่จะหายไป</h3>
+
         <div class="user-table">
 
             <table>

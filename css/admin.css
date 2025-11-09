@@ -114,6 +114,20 @@ table td{
     background-color:rgb(13, 69, 102) ;
 }
 
+.add-btn{
+    text-decoration:none;
+    color:white;
+    background-color:rgb(43, 214, 21);
+    padding:5px 15px 5px 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition:all 0.1s ease-out;
+}
+
+.add-btn:hover{
+    background-color:rgb(12, 78, 12);
+}
+
 .del-btn{
     text-decoration: none;
     color:white;
@@ -197,7 +211,7 @@ table td{
 }
 
 .grid-bar a:hover{
-    background-color:rgb(12, 78, 12); ;
+    background-color:rgb(12, 78, 12); 
 }
 
 .grid-bar button{
@@ -294,6 +308,32 @@ table td{
 
 .user-table table{
     width: max-content;
+}
+
+.check-eva{
+    text-decoration:none;
+    color:green;
+    font-weight: 500;
+}
+
+.content input{
+    width: 30rem;
+    border:none;
+    padding:20px;
+    box-shadow:0px 7px 29px 0px rgba(100,100,111,0.2);
+}
+
+.suggest-btn{
+    padding: 20px;
+    color:green;
+    transition: all 0.1s ease-out;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.suggest-btn:hover{
+    color:rgb(5, 100, 5);
 }
 
 @media(max-width:1200px){
