@@ -78,7 +78,7 @@
                         if($row['id'] == $teacher_id){
                             $selected = "selected";
                         }else{
-                            $selected = "";
+                            $selected = ""; 
                         }
                         echo "<option value='{$row['id']}' $selected>{$row['prefix']}{$row['firstname']} {$row['lastname']}</option>";
                     }
